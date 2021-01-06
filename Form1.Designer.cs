@@ -84,6 +84,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(12, 74);
@@ -107,6 +108,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(266, 259);
@@ -119,6 +121,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(266, 74);
@@ -131,6 +134,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Location = new System.Drawing.Point(12, 259);
@@ -196,6 +200,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.uiDataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiDataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.uiDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -268,6 +273,7 @@
             // 
             // uiSymbolButton1
             // 
+            this.uiSymbolButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton1.Location = new System.Drawing.Point(539, 74);
@@ -280,6 +286,7 @@
             // 
             // uiSymbolButton2
             // 
+            this.uiSymbolButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton2.Location = new System.Drawing.Point(618, 74);
@@ -292,6 +299,7 @@
             // 
             // uiSymbolButton3
             // 
+            this.uiSymbolButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton3.Location = new System.Drawing.Point(697, 74);
@@ -324,26 +332,26 @@
             // 新建文件ToolStripMenuItem
             // 
             this.新建文件ToolStripMenuItem.Name = "新建文件ToolStripMenuItem";
-            this.新建文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新建文件ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.新建文件ToolStripMenuItem.Text = "新建文件";
             // 
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 另存为ToolStripMenuItem
             // 
             this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.另存为ToolStripMenuItem.Text = "另存为";
             // 
             // 文件ToolStripMenuItem
@@ -359,20 +367,20 @@
             // walking1mp4ToolStripMenuItem
             // 
             this.walking1mp4ToolStripMenuItem.Name = "walking1mp4ToolStripMenuItem";
-            this.walking1mp4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.walking1mp4ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.walking1mp4ToolStripMenuItem.Text = "walking1.mp4";
             // 
             // walking2mpToolStripMenuItem
             // 
             this.walking2mpToolStripMenuItem.Name = "walking2mpToolStripMenuItem";
-            this.walking2mpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.walking2mpToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.walking2mpToolStripMenuItem.Text = "walking2.mp4";
             this.walking2mpToolStripMenuItem.Click += new System.EventHandler(this.walking2mpToolStripMenuItem_Click);
             // 
             // walking3mp4ToolStripMenuItem
             // 
             this.walking3mp4ToolStripMenuItem.Name = "walking3mp4ToolStripMenuItem";
-            this.walking3mp4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.walking3mp4ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.walking3mp4ToolStripMenuItem.Text = "walking3.mp4";
             // 
             // 帮助ToolStripMenuItem
@@ -388,18 +396,20 @@
             // 功能查询ToolStripMenuItem
             // 
             this.功能查询ToolStripMenuItem.Name = "功能查询ToolStripMenuItem";
-            this.功能查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.功能查询ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.功能查询ToolStripMenuItem.Text = "功能查询";
             // 
             // 结果搜索ToolStripMenuItem
             // 
             this.结果搜索ToolStripMenuItem.Name = "结果搜索ToolStripMenuItem";
-            this.结果搜索ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.结果搜索ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.结果搜索ToolStripMenuItem.Text = "结果搜索";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -410,12 +420,13 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(904, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(129, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // Button2
             // 
+            this.Button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.Button2.Location = new System.Drawing.Point(793, 74);
@@ -428,6 +439,7 @@
             // 
             // Line_View
             // 
+            this.Line_View.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Line_View.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Line_View.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.Line_View.LineSize = 2;
@@ -443,6 +455,7 @@
             // 
             // Line_Control
             // 
+            this.Line_Control.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Line_Control.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.Line_Control.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.Line_Control.LineSize = 2;
@@ -476,6 +489,7 @@
             // 
             // uiSymbolButton4
             // 
+            this.uiSymbolButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton4.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton4.Location = new System.Drawing.Point(839, 74);

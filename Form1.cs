@@ -148,7 +148,6 @@ namespace VDisplay
             float newx = (this.Width) / X; //窗体宽度缩放比例
             float newy = this.Height / Y;//窗体高度缩放比例
             setControls(newx, newy, this);//随窗体改变控件大小
-            this.Text = this.Width.ToString() + " " + this.Height.ToString();//窗体标题栏文本
         }
         
         private void pictureBox4_Click(object sender, EventArgs e)
