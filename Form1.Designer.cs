@@ -50,6 +50,7 @@
             this.视角 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RunningNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
@@ -71,9 +72,11 @@
             this.Line_View = new Sunny.UI.UILine();
             this.Line_Control = new Sunny.UI.UILine();
             this.uiLine1 = new Sunny.UI.UILine();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uiSymbolButton4 = new Sunny.UI.UISymbolButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton6 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton7 = new Sunny.UI.UISymbolButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -111,9 +114,9 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(266, 259);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 259);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 171);
+            this.pictureBox2.Size = new System.Drawing.Size(245, 169);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -126,7 +129,7 @@
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(266, 74);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(250, 169);
+            this.pictureBox3.Size = new System.Drawing.Size(245, 169);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
@@ -137,9 +140,9 @@
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 259);
+            this.pictureBox4.Location = new System.Drawing.Point(266, 259);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(245, 171);
+            this.pictureBox4.Size = new System.Drawing.Size(245, 169);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
@@ -190,7 +193,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(263, 259);
+            this.label4.Location = new System.Drawing.Point(266, 259);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 17);
             this.label4.TabIndex = 23;
@@ -230,46 +233,59 @@
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.Location = new System.Drawing.Point(539, 130);
             this.uiDataGridView1.Name = "uiDataGridView1";
-            this.uiDataGridView1.RowHeadersWidth = 62;
+            this.uiDataGridView1.RowHeadersVisible = false;
+            this.uiDataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.uiDataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.uiDataGridView1.RowTemplate.Height = 29;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(343, 300);
+            this.uiDataGridView1.Size = new System.Drawing.Size(342, 183);
             this.uiDataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView1.TabIndex = 25;
             this.uiDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellContentClick);
             // 
             // 视角
             // 
+            this.视角.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.视角.DataPropertyName = "ViewNum";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.视角.DefaultCellStyle = dataGridViewCellStyle3;
+            this.视角.FillWeight = 33F;
             this.视角.HeaderText = "View";
             this.视角.MinimumWidth = 8;
             this.视角.Name = "视角";
-            this.视角.ReadOnly = true;
-            this.视角.Width = 150;
             // 
             // TotalNum
             // 
+            this.TotalNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TotalNum.DataPropertyName = "TotalNum";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.TotalNum.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalNum.FillWeight = 33F;
             this.TotalNum.HeaderText = "场景人数";
             this.TotalNum.MinimumWidth = 8;
             this.TotalNum.Name = "TotalNum";
             this.TotalNum.ReadOnly = true;
-            this.TotalNum.Width = 150;
             // 
             // RunningNum
             // 
+            this.RunningNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RunningNum.DataPropertyName = "RunningNum";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.RunningNum.DefaultCellStyle = dataGridViewCellStyle5;
+            this.RunningNum.FillWeight = 33F;
             this.RunningNum.HeaderText = "运动人数";
             this.RunningNum.MinimumWidth = 8;
             this.RunningNum.Name = "RunningNum";
             this.RunningNum.ReadOnly = true;
-            this.RunningNum.Width = 150;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // uiSymbolButton1
             // 
@@ -481,12 +497,6 @@
             this.uiLine1.Text = "uiLine1";
             this.uiLine1.Click += new System.EventHandler(this.uiLine1_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // uiSymbolButton4
             // 
             this.uiSymbolButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -506,12 +516,64 @@
             this.timer.Interval = 50;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // uiSymbolButton5
+            // 
+            this.uiSymbolButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton5.FillColor = System.Drawing.Color.White;
+            this.uiSymbolButton5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiSymbolButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.uiSymbolButton5.Location = new System.Drawing.Point(539, 327);
+            this.uiSymbolButton5.Margin = new System.Windows.Forms.Padding(2);
+            this.uiSymbolButton5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton5.Name = "uiSymbolButton5";
+            this.uiSymbolButton5.Radius = 7;
+            this.uiSymbolButton5.Size = new System.Drawing.Size(104, 33);
+            this.uiSymbolButton5.Style = Sunny.UI.UIStyle.Custom;
+            this.uiSymbolButton5.Symbol = 61473;
+            this.uiSymbolButton5.TabIndex = 39;
+            this.uiSymbolButton5.Text = "Walking";
+            // 
+            // uiSymbolButton6
+            // 
+            this.uiSymbolButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.uiSymbolButton6.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiSymbolButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(176)))), ((int)(((byte)(246)))));
+            this.uiSymbolButton6.Location = new System.Drawing.Point(653, 327);
+            this.uiSymbolButton6.Margin = new System.Windows.Forms.Padding(2);
+            this.uiSymbolButton6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton6.Name = "uiSymbolButton6";
+            this.uiSymbolButton6.Radius = 7;
+            this.uiSymbolButton6.Size = new System.Drawing.Size(119, 33);
+            this.uiSymbolButton6.Style = Sunny.UI.UIStyle.Custom;
+            this.uiSymbolButton6.Symbol = 61488;
+            this.uiSymbolButton6.TabIndex = 40;
+            this.uiSymbolButton6.Text = " Watching";
+            // 
+            // uiSymbolButton7
+            // 
+            this.uiSymbolButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton7.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiSymbolButton7.Location = new System.Drawing.Point(539, 373);
+            this.uiSymbolButton7.Margin = new System.Windows.Forms.Padding(2);
+            this.uiSymbolButton7.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton7.Name = "uiSymbolButton7";
+            this.uiSymbolButton7.Radius = 7;
+            this.uiSymbolButton7.Size = new System.Drawing.Size(104, 33);
+            this.uiSymbolButton7.Style = Sunny.UI.UIStyle.Custom;
+            this.uiSymbolButton7.Symbol = 61463;
+            this.uiSymbolButton7.TabIndex = 41;
+            this.uiSymbolButton7.Text = "Waiting";
+            // 
             // 基于视觉智能的多人场景视频监控平台项目演示
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(904, 512);
+            this.Controls.Add(this.uiSymbolButton7);
+            this.Controls.Add(this.uiSymbolButton6);
+            this.Controls.Add(this.uiSymbolButton5);
             this.Controls.Add(this.uiSymbolButton4);
             this.Controls.Add(this.uiLine1);
             this.Controls.Add(this.Line_Control);
@@ -561,9 +623,6 @@
         private System.Windows.Forms.Label label4;
         //private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private Sunny.UI.UIDataGridView uiDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 视角;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RunningNum;
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UISymbolButton uiSymbolButton2;
         private Sunny.UI.UISymbolButton uiSymbolButton3;
@@ -588,6 +647,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Sunny.UI.UISymbolButton uiSymbolButton4;
         private System.Windows.Forms.Timer timer;
+        private Sunny.UI.UISymbolButton uiSymbolButton5;
+        private Sunny.UI.UISymbolButton uiSymbolButton6;
+        private Sunny.UI.UISymbolButton uiSymbolButton7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 视角;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RunningNum;
     }
 }
 

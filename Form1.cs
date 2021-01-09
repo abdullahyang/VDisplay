@@ -228,6 +228,18 @@ namespace VDisplay
 
         }
 
+        private void uiDataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)//行头显示行号
+        {
+            //显示在HeaderCell上
+            for (int i = 0; i < this.uiDataGridView1.Rows.Count; i++)
+            {
+                DataGridViewRow r = this.uiDataGridView1.Rows[i];
+                r.HeaderCell.Value = string.Format("{0}", i + 1);
+            }
+            this.uiDataGridView1.Refresh();
+        }
+
+
         private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
 
@@ -619,10 +631,10 @@ namespace VDisplay
                         label2.Visible = true;
                         pictureBox3.Visible = false;
                         label3.Visible = false;
-                        pictureBox1.Width = 242;
-                        pictureBox1.Height = 156;
-                        pictureBox4.Width = 242;
-                        pictureBox4.Height = 156;
+                        pictureBox1.Width = 245;
+                        pictureBox1.Height = 169;
+                        pictureBox4.Width = 245;
+                        pictureBox4.Height = 169;
                         pictureBox1.Location = new System.Drawing.Point(146, 87);
                         label1.Location = new System.Drawing.Point(146, 87);
                         pictureBox4.Location = new System.Drawing.Point(270, 259);
@@ -636,14 +648,14 @@ namespace VDisplay
                         label2.Visible = true;
                         pictureBox3.Visible = true;
                         label3.Visible = true;
-                        pictureBox1.Width = 242;
-                        pictureBox1.Height = 156;
-                        pictureBox4.Width = 242;
-                        pictureBox4.Height = 156;
-                        pictureBox1.Location = new System.Drawing.Point(22, 87);
-                        label1.Location = new System.Drawing.Point(22, 87);
-                        pictureBox4.Location = new System.Drawing.Point(270, 259);
-                        label4.Location = new System.Drawing.Point(270, 259);
+                        pictureBox1.Width = 245;
+                        pictureBox1.Height = 169;
+                        pictureBox4.Width = 245;
+                        pictureBox4.Height = 169;
+                        pictureBox1.Location = new System.Drawing.Point(12, 74);
+                        label1.Location = new System.Drawing.Point(12, 74);
+                        pictureBox4.Location = new System.Drawing.Point(266, 259);
+                        label4.Location = new System.Drawing.Point(266, 259);
                         label4.Text = "HorizontalView3";
                         image_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.jpg");
                         //pos4 = System.IO.Directory.GetDirectories(f4[0], "*xml");
