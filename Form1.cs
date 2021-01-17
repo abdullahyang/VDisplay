@@ -147,6 +147,8 @@ namespace VDisplay
         {
             float newx = (this.Width) / X; //窗体宽度缩放比例
             float newy = this.Height / Y;//窗体高度缩放比例
+            uiDataGridView1.ColumnHeadersHeight = Convert.ToInt32(uiDataGridView1.ColumnHeadersHeight * newy);
+            uiDataGridView1.RowHeadersWidth = Convert.ToInt32(uiDataGridView1.RowHeadersWidth * newx);
             setControls(newx, newy, this);//随窗体改变控件大小
         }
         
@@ -567,6 +569,8 @@ namespace VDisplay
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mode = 4;
+            X = this.Width;//获取窗体的宽度
+            Y = this.Height;//获取窗体的高度
             if (folderdia.ShowDialog() == DialogResult.OK)
             {
                 string text = folderdia.SelectedPath;
@@ -603,10 +607,10 @@ namespace VDisplay
                     label2.Visible = false;
                     pictureBox3.Visible = false;
                     label3.Visible = false;
-                    pictureBox1.Width = 268;
-                    pictureBox1.Height = 177;
-                    pictureBox4.Width = 268;
-                    pictureBox4.Height = 177;
+                    pictureBox1.Width = Convert.ToInt32(268 * (X / 920));
+                    pictureBox1.Height = Convert.ToInt32(177 * (Y / 551));
+                    pictureBox4.Width = Convert.ToInt32(268 * (X / 920));
+                    pictureBox4.Height = Convert.ToInt32(177 * (Y / 551));
                     pictureBox1.Location = new System.Drawing.Point(147, 87);
                     label1.Location = new System.Drawing.Point(147, 87);
                     pictureBox4.Location = new System.Drawing.Point(147, 280);
@@ -631,14 +635,14 @@ namespace VDisplay
                         label2.Visible = true;
                         pictureBox3.Visible = false;
                         label3.Visible = false;
-                        pictureBox1.Width = 245;
-                        pictureBox1.Height = 169;
-                        pictureBox4.Width = 245;
-                        pictureBox4.Height = 169;
+                        pictureBox1.Width = Convert.ToInt32(245 * (X / 920));
+                        pictureBox1.Height = Convert.ToInt32(169 * (Y / 551));
+                        pictureBox4.Width = Convert.ToInt32(245 * (X / 920));
+                        pictureBox4.Height = Convert.ToInt32(169 * (Y / 551));
                         pictureBox1.Location = new System.Drawing.Point(146, 87);
                         label1.Location = new System.Drawing.Point(146, 87);
                         pictureBox4.Location = new System.Drawing.Point(270, 259);
-                        label4.Location = new System.Drawing.Point(270, 259);
+                        label4.Location = new System.Drawing.Point(266, 259);
                         label4.Text = "HorizontalView2";
                     }
                     else
@@ -648,14 +652,14 @@ namespace VDisplay
                         label2.Visible = true;
                         pictureBox3.Visible = true;
                         label3.Visible = true;
-                        pictureBox1.Width = 245;
-                        pictureBox1.Height = 169;
-                        pictureBox4.Width = 245;
-                        pictureBox4.Height = 169;
-                        pictureBox1.Location = new System.Drawing.Point(12, 74);
-                        label1.Location = new System.Drawing.Point(12, 74);
-                        pictureBox4.Location = new System.Drawing.Point(266, 259);
-                        label4.Location = new System.Drawing.Point(266, 259);
+                        pictureBox1.Width = Convert.ToInt32(245 * (X / 920));
+                        pictureBox1.Height = Convert.ToInt32(169 * (Y / 551));
+                        pictureBox4.Width = Convert.ToInt32(245 * (X / 920));
+                        pictureBox4.Height = Convert.ToInt32(169 * (Y / 551));
+                        pictureBox1.Location = new System.Drawing.Point(Convert.ToInt32(12 * (X / 920)), Convert.ToInt32(74 * (Y / 551)));
+                        label1.Location = new System.Drawing.Point(Convert.ToInt32(12 * (X / 920)), Convert.ToInt32(74 * (Y / 551)));
+                        pictureBox4.Location = new System.Drawing.Point(Convert.ToInt32(266 * (X / 920)), Convert.ToInt32(259 * (Y / 551)));
+                        label4.Location = new System.Drawing.Point(Convert.ToInt32(266 * (X / 920)), Convert.ToInt32(259 * (Y / 551)));
                         label4.Text = "HorizontalView3";
                         image_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.jpg");
                         //pos4 = System.IO.Directory.GetDirectories(f4[0], "*xml");
@@ -663,7 +667,7 @@ namespace VDisplay
                     }
                 }
             }
-
+            setTag(this);
         }
 
         private void 俯视ToolStripMenuItem_Click(object sender, EventArgs e)
