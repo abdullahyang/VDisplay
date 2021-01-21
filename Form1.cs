@@ -21,6 +21,11 @@ namespace VDisplay
         public 基于视觉智能的多人场景视频监控平台项目演示()
         {
             InitializeComponent();
+            for(int i = 0; i < 10; i++)
+            {
+                person[i] = new Person();
+                person[i].color = colors[i];
+            }
             //this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             //this.skinEngine1.SkinFile = Application.StartupPath + "//WarmColor2.ssk";
         }
@@ -31,18 +36,9 @@ namespace VDisplay
         static string[] image_file_hor2;
         static string[] image_file_hor3;
         static string[] pos_file_top, pos_file_hor1, pos_file_hor2, pos_file_hor3;
-        string[] lines1;
-        string[] lines2;
-        string[] lines3;
-        string[] lines4;
-        static int index = 0, length;
-        static int cnt1 = 0;
-        static int cnt2 = 0;
-        static int cnt3 = 0;
-        static int cnt4 = 0;
+        static int index = 0;
         Bitmap[] buffimage = new Bitmap[5];
         static bool isopen = false;
-
         private void videoStart_Click(object sender, EventArgs e)
         {
             isopen = false;
@@ -54,9 +50,7 @@ namespace VDisplay
 
         }
         int mode = 4;
-        string[] pos1, pos2, pos3, pos4;
-        int num;
-        int itemCnt;
+        
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -85,11 +79,8 @@ namespace VDisplay
             }
             else
             {
-                lines1 = System.IO.File.ReadAllLines(pos_file_top[0]);
-                lines2 = System.IO.File.ReadAllLines(pos_file_hor1[0]);
-                if (mode >= 3) lines3 = System.IO.File.ReadAllLines(pos_file_hor2[0]);
-                if (mode == 4) lines4 = System.IO.File.ReadAllLines(pos_file_hor3[0]);
-                length = pos_file_top.Length;
+                
+                //length = pos_file_top.Length;
                 this.timer.Start();
             }
         }
@@ -281,30 +272,73 @@ namespace VDisplay
         {
 
         }
+        Color[] colors = {Color.Black, Color.Red, Color.Pink, Color.Orange, Color.Yellow, Color.Green, Color.Blue, Color.Purple, Color.Gold, Color.Brown };
+        string[] lines;
+        class Person
+        {
+            public float[] top_xmin { get; set; }
+            public float[] top_ymin { get; set; }
+            public float[] top_xlen { get; set; }
+            public float[] top_ylen { get; set; }
+            public float[] hor1_xmin { get; set; }
+            public float[] hor1_ymin { get; set; }
+            public float[] hor1_xlen { get; set; }
+            public float[] hor1_ylen { get; set; }
+            public float[] hor2_xmin { get; set; }
+            public float[] hor2_ymin { get; set; }
+            public float[] hor2_xlen { get; set; }
+            public float[] hor2_ylen { get; set; }
+            public float[] hor3_xmin { get; set; }
+            public float[] hor3_ymin { get; set; }
+            public float[] hor3_xlen { get; set; }
+            public float[] hor3_ylen { get; set; }
+            public Color color { get; set; }
+
+            //加个构造函数初始化input，teach两个数组
+
+            public Person()
+            {
+                 top_xmin = new float[1800];
+                 top_ymin = new float[1800];
+                 top_xlen = new float[1800];
+                 top_ylen = new float[1800];
+                 hor1_xmin = new float[1800];
+                 hor1_ymin = new float[1800];
+                 hor1_xlen = new float[1800];
+                 hor1_ylen = new float[1800];
+                 hor2_xmin = new float[1800];
+                 hor2_ymin = new float[1800];
+                 hor2_xlen = new float[1800];
+                 hor2_ylen = new float[1800];
+                 hor3_xmin = new float[1800];
+                 hor3_ymin = new float[1800];
+                 hor3_xlen = new float[1800];
+                 hor3_ylen = new float[1800];
+                 color = new Color();
+            }
+
+        }
+
+        Person[] person = new Person[10];
+        int person_cnt;
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            int clength = lines1.Length;
+            int cur_person;
             Mat image1 = new Mat(image_file_top[index], ImreadModes.AnyColor);
             buffimage[1] = image1.ToBitmap();
             Graphics g1 = Graphics.FromImage(buffimage[1]);
-            int ct = cnt1;
-            while (cnt1 < lines1.Length)
+            cur_person = 0;
+            while(cur_person < person_cnt)
             {
-                string[] words = lines1[cnt1].Split(',');
-                if (words[0] != index.ToString())
+                if (person[cur_person].top_xmin[index] == 0.0f)
                 {
-                    break;
+                    ++cur_person;
+                    continue;
                 }
-                else
-                {
-                    var xmin = float.Parse(words[2]);
-                    var ymin = float.Parse(words[3]);
-                    var xlen = float.Parse(words[4]);
-                    var ylen = float.Parse(words[5]);
-                    g1.DrawRectangle(new Pen(Color.Red, 2), xmin, ymin, xlen, ylen);
-                    ++cnt1;
-                }
+                g1.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
+                g1.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index]);
+                ++cur_person;
             }
             image1.Release();
 
@@ -313,27 +347,20 @@ namespace VDisplay
             buffimage[2] = null;
             if (mode >= 3)
             {
-                clength = lines2.Length;
                 image2 = new Mat(image_file_hor1[index], ImreadModes.AnyColor);
                 buffimage[2] = image2.ToBitmap();
                 g2 = Graphics.FromImage(buffimage[2]);
-                while (cnt2 < clength)
+                cur_person = 0;
+                while (cur_person < person_cnt)
                 {
-                    string[] words = null;
-                    words = lines2[cnt2].Split(',');
-                    if (words[0] != index.ToString())
+                    if (person[cur_person].hor1_xmin[index] == 0.0f)
                     {
-                        break;
+                        ++cur_person;
+                        continue;
                     }
-                    else
-                    {
-                        var xmin = float.Parse(words[2]);
-                        var ymin = float.Parse(words[3]);
-                        var xlen = float.Parse(words[4]);
-                        var ylen = float.Parse(words[5]);
-                        g2.DrawRectangle(new Pen(Color.Red, 2), xmin, ymin, xlen, ylen);
-                        ++cnt2;
-                    }
+                    g2.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g2.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+                    ++cur_person;
                 }
                 image2.Release();
             }
@@ -342,26 +369,20 @@ namespace VDisplay
             buffimage[3] = null;
             if (mode == 4)
             {
-                clength = lines3.Length;
                 image3 = new Mat(image_file_hor2[index], ImreadModes.AnyColor);
                 buffimage[3] = image3.ToBitmap();
                 g3 = Graphics.FromImage(buffimage[3]);
-                while (cnt3 < clength)
+                cur_person = 0;
+                while (cur_person < person_cnt)
                 {
-                    string[] words = lines3[cnt3].Split(',');
-                    if (words[0] != index.ToString())
+                    if (person[cur_person].hor2_xmin[index] == 0.0f)
                     {
-                        break;
+                        ++cur_person;
+                        continue;
                     }
-                    else
-                    {
-                        var xmin = float.Parse(words[2]);
-                        var ymin = float.Parse(words[3]);
-                        var xlen = float.Parse(words[4]);
-                        var ylen = float.Parse(words[5]);
-                        g3.DrawRectangle(new Pen(Color.Red, 2), xmin, ymin, xlen, ylen);
-                        ++cnt3;
-                    }
+                    g3.DrawRectangle(new Pen(person[cur_person].color, 2), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g3.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+                    ++cur_person;
                 }
                 image3.Release();
             }
@@ -370,38 +391,63 @@ namespace VDisplay
             if (mode == 2)
             {
                 image4 = new Mat(image_file_hor1[index], ImreadModes.AnyColor);
-                clength = lines2.Length;
+                
             }
             else if (mode == 3)
             {
                 image4 = new Mat(image_file_hor2[index], ImreadModes.AnyColor);
-                clength = lines3.Length;
+                
             }
             else if (mode == 4)
             {
                 image4 = new Mat(image_file_hor3[index], ImreadModes.AnyColor);
-                clength = lines4.Length;
+                
             }
             buffimage[4] = image4.ToBitmap();
             Graphics g4 = Graphics.FromImage(buffimage[4]);
-            while (cnt4 < clength)
+            if(mode == 2)
             {
-                string[] words = null;
-                if (mode == 2) words = lines2[cnt4].Split(',');
-                else if (mode == 3) words = lines3[cnt4].Split(',');
-                else words = lines4[cnt4].Split(',');
-                if (words[0] != index.ToString())
+                cur_person = 0;
+                while (cur_person < person_cnt)
                 {
-                    break;
+                    if (person[cur_person].hor1_xmin[index] == 0.0f)
+                    {
+                        ++cur_person;
+                        continue;
+                    }
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+                    ++cur_person;
                 }
-                else
+            }
+            else if(mode == 3)
+            {
+                cur_person = 0;
+                while (cur_person < person_cnt)
                 {
-                    var xmin = float.Parse(words[2]);
-                    var ymin = float.Parse(words[3]);
-                    var xlen = float.Parse(words[4]);
-                    var ylen = float.Parse(words[5]);
-                    g4.DrawRectangle(new Pen(Color.Red, 2), xmin, ymin, xlen, ylen);
-                    ++cnt4;
+                    if (person[cur_person].hor2_xmin[index] == 0.0f)
+                    {
+                        ++cur_person;
+                        continue;
+                    }
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+                    ++cur_person;
+                }
+            }
+            else if(mode == 4)
+            {
+                cur_person = 0;
+                while (cur_person < person_cnt)
+                {
+                    if (person[cur_person].hor3_xmin[index] == 0.0f)
+                    {
+                        ++cur_person;
+                        continue;
+                    }
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index]);
+                    ++cur_person;
                 }
             }
             image4.Release();
@@ -425,7 +471,6 @@ namespace VDisplay
                 image3.Dispose();
                 g2.Dispose();
                 g3.Dispose();
-
             }
             else if (mode == 3)
             {
@@ -568,6 +613,17 @@ namespace VDisplay
 
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            person_cnt = 0;
+            for(int i = 0; i < 10; i++)
+            {
+                for(int j = 0; j < 1500; j++)
+                {
+                    person[i].top_xmin[j] = person[i].top_ymin[j] = person[i].top_xlen[j] = person[i].top_ylen[j] = 0.0f;
+                    person[i].hor1_xmin[j] = person[i].hor1_ymin[j] = person[i].hor1_xlen[j] = person[i].hor1_ylen[j] = 0.0f;
+                    person[i].hor2_xmin[j] = person[i].hor2_ymin[j] = person[i].hor2_xlen[j] = person[i].hor2_ylen[j] = 0.0f;
+                    person[i].hor3_xmin[j] = person[i].hor3_ymin[j] = person[i].hor3_xlen[j] = person[i].hor3_ylen[j] = 0.0f;
+                }
+            }
             mode = 4;
             X = this.Width;//获取窗体的宽度
             Y = this.Height;//获取窗体的高度
@@ -575,6 +631,9 @@ namespace VDisplay
             {
                 string text = folderdia.SelectedPath;
                 foldername = text;
+                int cur_line;
+                int cur_frame;
+                int cur_person;
                 /* 顶视 */
                 string[] f1;
                 f1 = System.IO.Directory.GetDirectories(foldername, "*top");
@@ -585,6 +644,29 @@ namespace VDisplay
                 }
                 image_file_top = System.IO.Directory.GetFiles(f1[0], "*.jpg");
                 pos_file_top = System.IO.Directory.GetFiles(f1[0], "*.txt");
+                lines = System.IO.File.ReadAllLines(pos_file_top[0]);
+                cur_line = 0;
+                cur_frame = 0;
+                cur_person = 0;
+                while(cur_line < lines.Length)
+                {
+                    string[] words = lines[cur_line].Split(',');
+                    if (Int32.Parse(words[0]) < cur_frame)
+                    {
+                        cur_person++;
+                    }
+                    cur_frame = Int32.Parse(words[0]) - 1;
+                    person[cur_person].top_xmin[cur_frame] = float.Parse(words[2]);
+                    person[cur_person].top_ymin[cur_frame] = float.Parse(words[3]);
+                    person[cur_person].top_xlen[cur_frame] = float.Parse(words[4]);
+                    person[cur_person].top_ylen[cur_frame] = float.Parse(words[5]);
+                    cur_line++;
+                }
+                cur_person++;
+                if (cur_person > person_cnt)
+                {
+                    person_cnt = cur_person;
+                }
 
                 /* 平视1 */
                 string[] f2;
@@ -596,6 +678,29 @@ namespace VDisplay
                 }
                 image_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.jpg");
                 pos_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.txt");
+                lines = System.IO.File.ReadAllLines(pos_file_hor1[0]);
+                cur_line = 0;
+                cur_frame = 0;
+                cur_person = 0;
+                while (cur_line < lines.Length)
+                {
+                    string[] words = lines[cur_line].Split(',');
+                    if (Int32.Parse(words[0]) < cur_frame)
+                    {
+                        cur_person++;
+                    }
+                    cur_frame = Int32.Parse(words[0]) - 1;
+                    person[cur_person].hor1_xmin[cur_frame] = float.Parse(words[2]);
+                    person[cur_person].hor1_ymin[cur_frame] = float.Parse(words[3]);
+                    person[cur_person].hor1_xlen[cur_frame] = float.Parse(words[4]);
+                    person[cur_person].hor1_ylen[cur_frame] = float.Parse(words[5]);
+                    cur_line++;
+                }
+                cur_person++;
+                if (cur_person > person_cnt)
+                {
+                    person_cnt = cur_person;
+                }
 
                 /* 平视2 */
                 string[] f3;
@@ -621,6 +726,29 @@ namespace VDisplay
                 {
                     image_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.jpg");
                     pos_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.txt");
+                    lines = System.IO.File.ReadAllLines(pos_file_hor2[0]);
+                    cur_line = 0;
+                    cur_frame = 0;
+                    cur_person = 0;
+                    while (cur_line < lines.Length)
+                    {
+                        string[] words = lines[cur_line].Split(',');
+                        if (Int32.Parse(words[0]) < cur_frame)
+                        {
+                            cur_person++;
+                        }
+                        cur_frame = Int32.Parse(words[0]) - 1;
+                        person[cur_person].hor2_xmin[cur_frame] = float.Parse(words[2]);
+                        person[cur_person].hor2_ymin[cur_frame] = float.Parse(words[3]);
+                        person[cur_person].hor2_xlen[cur_frame] = float.Parse(words[4]);
+                        person[cur_person].hor2_ylen[cur_frame] = float.Parse(words[5]);
+                        cur_line++;
+                    }
+                    cur_person++;
+                    if (cur_person > person_cnt)
+                    {
+                        person_cnt = cur_person;
+                    }
                 }
 
                 if (mode != 2)
@@ -664,6 +792,29 @@ namespace VDisplay
                         image_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.jpg");
                         //pos4 = System.IO.Directory.GetDirectories(f4[0], "*xml");
                         pos_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.txt");
+                        lines = System.IO.File.ReadAllLines(pos_file_hor3[0]);
+                        cur_line = 0;
+                        cur_frame = 0;
+                        cur_person = 0;
+                        while (cur_line < lines.Length)
+                        {
+                            string[] words = lines[cur_line].Split(',');
+                            if (Int32.Parse(words[0]) < cur_frame)
+                            {
+                                cur_person++;
+                            }
+                            cur_frame = Int32.Parse(words[0]) - 1;
+                            person[cur_person].hor3_xmin[cur_frame] = float.Parse(words[2]);
+                            person[cur_person].hor3_ymin[cur_frame] = float.Parse(words[3]);
+                            person[cur_person].hor3_xlen[cur_frame] = float.Parse(words[4]);
+                            person[cur_person].hor3_ylen[cur_frame] = float.Parse(words[5]);
+                            cur_line++;
+                        }
+                        cur_person++;
+                        if (cur_person > person_cnt)
+                        {
+                            person_cnt = cur_person;
+                        }
                     }
                 }
             }
