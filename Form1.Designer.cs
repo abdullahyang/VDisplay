@@ -47,9 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
-            this.视角 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunningNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
@@ -77,6 +74,9 @@
             this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton6 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton7 = new Sunny.UI.UISymbolButton();
+            this.视角 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RunningNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -246,41 +246,6 @@
             this.uiDataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView1.TabIndex = 25;
             this.uiDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellContentClick);
-            // 
-            // 视角
-            // 
-            this.视角.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.视角.DataPropertyName = "ViewNum";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.视角.DefaultCellStyle = dataGridViewCellStyle3;
-            this.视角.FillWeight = 33F;
-            this.视角.HeaderText = "View";
-            this.视角.MinimumWidth = 8;
-            this.视角.Name = "视角";
-            // 
-            // TotalNum
-            // 
-            this.TotalNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TotalNum.DataPropertyName = "TotalNum";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.TotalNum.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TotalNum.FillWeight = 33F;
-            this.TotalNum.HeaderText = "场景人数";
-            this.TotalNum.MinimumWidth = 8;
-            this.TotalNum.Name = "TotalNum";
-            this.TotalNum.ReadOnly = true;
-            // 
-            // RunningNum
-            // 
-            this.RunningNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RunningNum.DataPropertyName = "RunningNum";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RunningNum.DefaultCellStyle = dataGridViewCellStyle5;
-            this.RunningNum.FillWeight = 33F;
-            this.RunningNum.HeaderText = "运动人数";
-            this.RunningNum.MinimumWidth = 8;
-            this.RunningNum.Name = "RunningNum";
-            this.RunningNum.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
@@ -565,6 +530,41 @@
             this.uiSymbolButton7.Symbol = 61463;
             this.uiSymbolButton7.TabIndex = 41;
             this.uiSymbolButton7.Text = "Waiting";
+            // 
+            // 视角
+            // 
+            this.视角.DataPropertyName = "ViewNum";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.视角.DefaultCellStyle = dataGridViewCellStyle3;
+            this.视角.FillWeight = 33F;
+            this.视角.HeaderText = "View";
+            this.视角.MinimumWidth = 8;
+            this.视角.Name = "视角";
+            this.视角.Width = 71;
+            // 
+            // TotalNum
+            // 
+            this.TotalNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TotalNum.DataPropertyName = "TotalNum";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.TotalNum.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TotalNum.FillWeight = 33F;
+            this.TotalNum.HeaderText = "场景人数";
+            this.TotalNum.MinimumWidth = 8;
+            this.TotalNum.Name = "TotalNum";
+            this.TotalNum.ReadOnly = true;
+            // 
+            // RunningNum
+            // 
+            this.RunningNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RunningNum.DataPropertyName = "RunningNum";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RunningNum.DefaultCellStyle = dataGridViewCellStyle5;
+            this.RunningNum.FillWeight = 33F;
+            this.RunningNum.HeaderText = "运动人数";
+            this.RunningNum.MinimumWidth = 8;
+            this.RunningNum.Name = "RunningNum";
+            this.RunningNum.ReadOnly = true;
             // 
             // 基于视觉智能的多人场景视频监控平台项目演示
             // 
