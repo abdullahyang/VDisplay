@@ -31,11 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(基于视觉智能的多人场景视频监控平台项目演示));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1Start = new System.Windows.Forms.Button();
@@ -76,7 +75,6 @@
             this.uiSymbolButton7 = new Sunny.UI.UISymbolButton();
             this.视角 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RunningNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -90,9 +88,10 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 111);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 169);
+            this.pictureBox1.Size = new System.Drawing.Size(366, 252);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -101,9 +100,10 @@
             // 
             // timer1Start
             // 
-            this.timer1Start.Location = new System.Drawing.Point(1037, 557);
+            this.timer1Start.Location = new System.Drawing.Point(1556, 836);
+            this.timer1Start.Margin = new System.Windows.Forms.Padding(4);
             this.timer1Start.Name = "timer1Start";
-            this.timer1Start.Size = new System.Drawing.Size(75, 23);
+            this.timer1Start.Size = new System.Drawing.Size(112, 34);
             this.timer1Start.TabIndex = 6;
             this.timer1Start.Text = "timer1Start";
             this.timer1Start.UseVisualStyleBackColor = true;
@@ -114,9 +114,10 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 259);
+            this.pictureBox2.Location = new System.Drawing.Point(18, 388);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(245, 169);
+            this.pictureBox2.Size = new System.Drawing.Size(366, 252);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -127,9 +128,10 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(266, 74);
+            this.pictureBox3.Location = new System.Drawing.Point(399, 111);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(245, 169);
+            this.pictureBox3.Size = new System.Drawing.Size(366, 252);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 14;
             this.pictureBox3.TabStop = false;
@@ -140,9 +142,10 @@
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlText;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(266, 259);
+            this.pictureBox4.Location = new System.Drawing.Point(399, 388);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(245, 169);
+            this.pictureBox4.Size = new System.Drawing.Size(366, 252);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
@@ -155,9 +158,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Location = new System.Drawing.Point(18, 111);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.Size = new System.Drawing.Size(84, 24);
             this.label1.TabIndex = 20;
             this.label1.Text = "TopView";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -168,9 +172,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(12, 259);
+            this.label2.Location = new System.Drawing.Point(18, 388);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 17);
+            this.label2.Size = new System.Drawing.Size(152, 24);
             this.label2.TabIndex = 21;
             this.label2.Text = "HorizontalView1";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -181,9 +186,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(263, 74);
+            this.label3.Location = new System.Drawing.Point(394, 111);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.Size = new System.Drawing.Size(152, 24);
             this.label3.TabIndex = 22;
             this.label3.Text = "HorizontalView2";
             // 
@@ -193,9 +199,10 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(266, 259);
+            this.label4.Location = new System.Drawing.Point(399, 388);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 17);
+            this.label4.Size = new System.Drawing.Size(152, 24);
             this.label4.TabIndex = 23;
             this.label4.Text = "HorizontalView3";
             // 
@@ -219,30 +226,30 @@
             this.uiDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.uiDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.视角,
-            this.TotalNum,
-            this.RunningNum});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TotalNum});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.Location = new System.Drawing.Point(539, 130);
+            this.uiDataGridView1.Location = new System.Drawing.Point(808, 195);
+            this.uiDataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.uiDataGridView1.Name = "uiDataGridView1";
             this.uiDataGridView1.RowHeadersVisible = false;
             this.uiDataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.uiDataGridView1.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
             this.uiDataGridView1.RowTemplate.Height = 29;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(342, 183);
+            this.uiDataGridView1.Size = new System.Drawing.Size(513, 274);
             this.uiDataGridView1.Style = Sunny.UI.UIStyle.Custom;
             this.uiDataGridView1.TabIndex = 25;
             this.uiDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellContentClick);
@@ -258,10 +265,11 @@
             this.uiSymbolButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(539, 74);
-            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(808, 111);
+            this.uiSymbolButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
-            this.uiSymbolButton1.Size = new System.Drawing.Size(74, 40);
+            this.uiSymbolButton1.Size = new System.Drawing.Size(111, 60);
             this.uiSymbolButton1.Symbol = 61515;
             this.uiSymbolButton1.TabIndex = 26;
             this.uiSymbolButton1.Click += new System.EventHandler(this.videoFStart_Click);
@@ -271,10 +279,11 @@
             this.uiSymbolButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(618, 74);
-            this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(927, 111);
+            this.uiSymbolButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
-            this.uiSymbolButton2.Size = new System.Drawing.Size(74, 40);
+            this.uiSymbolButton2.Size = new System.Drawing.Size(111, 60);
             this.uiSymbolButton2.Symbol = 61516;
             this.uiSymbolButton2.TabIndex = 27;
             this.uiSymbolButton2.Click += new System.EventHandler(this.videoStart_Click);
@@ -284,10 +293,11 @@
             this.uiSymbolButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton3.Location = new System.Drawing.Point(697, 74);
-            this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton3.Location = new System.Drawing.Point(1046, 111);
+            this.uiSymbolButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton3.Name = "uiSymbolButton3";
-            this.uiSymbolButton3.Size = new System.Drawing.Size(74, 40);
+            this.uiSymbolButton3.Size = new System.Drawing.Size(111, 60);
             this.uiSymbolButton3.Symbol = 61517;
             this.uiSymbolButton3.TabIndex = 28;
             this.uiSymbolButton3.Click += new System.EventHandler(this.button1_Click);
@@ -307,33 +317,33 @@
             this.保存ToolStripMenuItem,
             this.另存为ToolStripMenuItem});
             this.开始ToolStripMenuItem.Name = "开始ToolStripMenuItem";
-            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
+            this.开始ToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.开始ToolStripMenuItem.Text = "开始";
             this.开始ToolStripMenuItem.Click += new System.EventHandler(this.开始ToolStripMenuItem_Click);
             // 
             // 新建文件ToolStripMenuItem
             // 
             this.新建文件ToolStripMenuItem.Name = "新建文件ToolStripMenuItem";
-            this.新建文件ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.新建文件ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.新建文件ToolStripMenuItem.Text = "新建文件";
             // 
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 另存为ToolStripMenuItem
             // 
             this.另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.另存为ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.另存为ToolStripMenuItem.Text = "另存为";
             // 
             // 文件ToolStripMenuItem
@@ -343,26 +353,26 @@
             this.walking2mpToolStripMenuItem,
             this.walking3mp4ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.文件ToolStripMenuItem.Text = "文件";
             // 
             // walking1mp4ToolStripMenuItem
             // 
             this.walking1mp4ToolStripMenuItem.Name = "walking1mp4ToolStripMenuItem";
-            this.walking1mp4ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.walking1mp4ToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
             this.walking1mp4ToolStripMenuItem.Text = "walking1.mp4";
             // 
             // walking2mpToolStripMenuItem
             // 
             this.walking2mpToolStripMenuItem.Name = "walking2mpToolStripMenuItem";
-            this.walking2mpToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.walking2mpToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
             this.walking2mpToolStripMenuItem.Text = "walking2.mp4";
             this.walking2mpToolStripMenuItem.Click += new System.EventHandler(this.walking2mpToolStripMenuItem_Click);
             // 
             // walking3mp4ToolStripMenuItem
             // 
             this.walking3mp4ToolStripMenuItem.Name = "walking3mp4ToolStripMenuItem";
-            this.walking3mp4ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.walking3mp4ToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
             this.walking3mp4ToolStripMenuItem.Text = "walking3.mp4";
             // 
             // 帮助ToolStripMenuItem
@@ -371,20 +381,20 @@
             this.功能查询ToolStripMenuItem,
             this.结果搜索ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(41, 22);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.帮助ToolStripMenuItem.Text = "帮助";
             this.帮助ToolStripMenuItem.Click += new System.EventHandler(this.帮助ToolStripMenuItem_Click);
             // 
             // 功能查询ToolStripMenuItem
             // 
             this.功能查询ToolStripMenuItem.Name = "功能查询ToolStripMenuItem";
-            this.功能查询ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.功能查询ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.功能查询ToolStripMenuItem.Text = "功能查询";
             // 
             // 结果搜索ToolStripMenuItem
             // 
             this.结果搜索ToolStripMenuItem.Name = "结果搜索ToolStripMenuItem";
-            this.结果搜索ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.结果搜索ToolStripMenuItem.Size = new System.Drawing.Size(178, 34);
             this.结果搜索ToolStripMenuItem.Text = "结果搜索";
             // 
             // menuStrip1
@@ -393,6 +403,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.开始ToolStripMenuItem,
@@ -400,9 +411,8 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(129, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(188, 26);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -411,13 +421,15 @@
             this.Button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.Button2.Location = new System.Drawing.Point(793, 74);
-            this.Button2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.Button2.Location = new System.Drawing.Point(1190, 111);
+            this.Button2.Margin = new System.Windows.Forms.Padding(4);
+            this.Button2.MinimumSize = new System.Drawing.Size(2, 2);
             this.Button2.Name = "Button2";
-            this.Button2.Size = new System.Drawing.Size(42, 40);
+            this.Button2.Size = new System.Drawing.Size(63, 60);
             this.Button2.Style = Sunny.UI.UIStyle.Custom;
             this.Button2.Symbol = 61639;
             this.Button2.TabIndex = 33;
+            this.Button2.Click += new System.EventHandler(this.Button2_Click_1);
             // 
             // Line_View
             // 
@@ -425,10 +437,11 @@
             this.Line_View.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Line_View.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.Line_View.LineSize = 2;
-            this.Line_View.Location = new System.Drawing.Point(15, 39);
-            this.Line_View.MinimumSize = new System.Drawing.Size(2, 2);
+            this.Line_View.Location = new System.Drawing.Point(22, 58);
+            this.Line_View.Margin = new System.Windows.Forms.Padding(4);
+            this.Line_View.MinimumSize = new System.Drawing.Size(3, 3);
             this.Line_View.Name = "Line_View";
-            this.Line_View.Size = new System.Drawing.Size(501, 19);
+            this.Line_View.Size = new System.Drawing.Size(752, 28);
             this.Line_View.Style = Sunny.UI.UIStyle.Custom;
             this.Line_View.TabIndex = 34;
             this.Line_View.Text = "View";
@@ -441,10 +454,11 @@
             this.Line_Control.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.Line_Control.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.Line_Control.LineSize = 2;
-            this.Line_Control.Location = new System.Drawing.Point(539, 39);
-            this.Line_Control.MinimumSize = new System.Drawing.Size(2, 2);
+            this.Line_Control.Location = new System.Drawing.Point(808, 58);
+            this.Line_Control.Margin = new System.Windows.Forms.Padding(4);
+            this.Line_Control.MinimumSize = new System.Drawing.Size(3, 3);
             this.Line_Control.Name = "Line_Control";
-            this.Line_Control.Size = new System.Drawing.Size(343, 19);
+            this.Line_Control.Size = new System.Drawing.Size(514, 28);
             this.Line_Control.Style = Sunny.UI.UIStyle.Custom;
             this.Line_Control.TabIndex = 35;
             this.Line_Control.Text = "Control";
@@ -455,10 +469,11 @@
             // 
             this.uiLine1.Direction = Sunny.UI.UILine.LineDirection.Vertical;
             this.uiLine1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLine1.Location = new System.Drawing.Point(777, 74);
-            this.uiLine1.MinimumSize = new System.Drawing.Size(2, 2);
+            this.uiLine1.Location = new System.Drawing.Point(1166, 111);
+            this.uiLine1.Margin = new System.Windows.Forms.Padding(4);
+            this.uiLine1.MinimumSize = new System.Drawing.Size(3, 3);
             this.uiLine1.Name = "uiLine1";
-            this.uiLine1.Size = new System.Drawing.Size(10, 42);
+            this.uiLine1.Size = new System.Drawing.Size(15, 63);
             this.uiLine1.TabIndex = 36;
             this.uiLine1.Text = "uiLine1";
             this.uiLine1.Click += new System.EventHandler(this.uiLine1_Click);
@@ -468,11 +483,10 @@
             this.uiSymbolButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.uiSymbolButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton4.Location = new System.Drawing.Point(839, 74);
-            this.uiSymbolButton4.Margin = new System.Windows.Forms.Padding(2);
-            this.uiSymbolButton4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton4.Location = new System.Drawing.Point(1258, 111);
+            this.uiSymbolButton4.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton4.Name = "uiSymbolButton4";
-            this.uiSymbolButton4.Size = new System.Drawing.Size(42, 40);
+            this.uiSymbolButton4.Size = new System.Drawing.Size(63, 60);
             this.uiSymbolButton4.Symbol = 61529;
             this.uiSymbolButton4.TabIndex = 38;
             this.uiSymbolButton4.Click += new System.EventHandler(this.uiSymbolButton4_Click);
@@ -488,12 +502,11 @@
             this.uiSymbolButton5.FillColor = System.Drawing.Color.White;
             this.uiSymbolButton5.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiSymbolButton5.Location = new System.Drawing.Point(539, 327);
-            this.uiSymbolButton5.Margin = new System.Windows.Forms.Padding(2);
-            this.uiSymbolButton5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton5.Location = new System.Drawing.Point(808, 490);
+            this.uiSymbolButton5.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton5.Name = "uiSymbolButton5";
             this.uiSymbolButton5.Radius = 7;
-            this.uiSymbolButton5.Size = new System.Drawing.Size(104, 33);
+            this.uiSymbolButton5.Size = new System.Drawing.Size(156, 50);
             this.uiSymbolButton5.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolButton5.Symbol = 61473;
             this.uiSymbolButton5.TabIndex = 39;
@@ -505,12 +518,11 @@
             this.uiSymbolButton6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
             this.uiSymbolButton6.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiSymbolButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(176)))), ((int)(((byte)(246)))));
-            this.uiSymbolButton6.Location = new System.Drawing.Point(653, 327);
-            this.uiSymbolButton6.Margin = new System.Windows.Forms.Padding(2);
-            this.uiSymbolButton6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton6.Location = new System.Drawing.Point(980, 490);
+            this.uiSymbolButton6.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton6.Name = "uiSymbolButton6";
             this.uiSymbolButton6.Radius = 7;
-            this.uiSymbolButton6.Size = new System.Drawing.Size(119, 33);
+            this.uiSymbolButton6.Size = new System.Drawing.Size(178, 50);
             this.uiSymbolButton6.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolButton6.Symbol = 61488;
             this.uiSymbolButton6.TabIndex = 40;
@@ -520,12 +532,11 @@
             // 
             this.uiSymbolButton7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton7.Location = new System.Drawing.Point(539, 373);
-            this.uiSymbolButton7.Margin = new System.Windows.Forms.Padding(2);
-            this.uiSymbolButton7.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton7.Location = new System.Drawing.Point(808, 560);
+            this.uiSymbolButton7.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiSymbolButton7.Name = "uiSymbolButton7";
             this.uiSymbolButton7.Radius = 7;
-            this.uiSymbolButton7.Size = new System.Drawing.Size(104, 33);
+            this.uiSymbolButton7.Size = new System.Drawing.Size(156, 50);
             this.uiSymbolButton7.Style = Sunny.UI.UIStyle.Custom;
             this.uiSymbolButton7.Symbol = 61463;
             this.uiSymbolButton7.TabIndex = 41;
@@ -533,14 +544,14 @@
             // 
             // 视角
             // 
+            this.视角.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.视角.DataPropertyName = "ViewNum";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.视角.DefaultCellStyle = dataGridViewCellStyle3;
-            this.视角.FillWeight = 33F;
+            this.视角.FillWeight = 50F;
             this.视角.HeaderText = "View";
             this.视角.MinimumWidth = 8;
             this.视角.Name = "视角";
-            this.视角.Width = 71;
             // 
             // TotalNum
             // 
@@ -548,30 +559,18 @@
             this.TotalNum.DataPropertyName = "TotalNum";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.TotalNum.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TotalNum.FillWeight = 33F;
+            this.TotalNum.FillWeight = 50F;
             this.TotalNum.HeaderText = "场景人数";
             this.TotalNum.MinimumWidth = 8;
             this.TotalNum.Name = "TotalNum";
             this.TotalNum.ReadOnly = true;
             // 
-            // RunningNum
-            // 
-            this.RunningNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RunningNum.DataPropertyName = "RunningNum";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RunningNum.DefaultCellStyle = dataGridViewCellStyle5;
-            this.RunningNum.FillWeight = 33F;
-            this.RunningNum.HeaderText = "运动人数";
-            this.RunningNum.MinimumWidth = 8;
-            this.RunningNum.Name = "RunningNum";
-            this.RunningNum.ReadOnly = true;
-            // 
             // 基于视觉智能的多人场景视频监控平台项目演示
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(904, 512);
+            this.ClientSize = new System.Drawing.Size(1356, 768);
             this.Controls.Add(this.uiSymbolButton7);
             this.Controls.Add(this.uiSymbolButton6);
             this.Controls.Add(this.uiSymbolButton5);
@@ -597,6 +596,7 @@
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "基于视觉智能的多人场景视频监控平台项目演示";
             this.Text = "基于视觉智能的多人场景视频监控平台";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -653,7 +653,6 @@
         private Sunny.UI.UISymbolButton uiSymbolButton7;
         private System.Windows.Forms.DataGridViewTextBoxColumn 视角;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RunningNum;
     }
 }
 

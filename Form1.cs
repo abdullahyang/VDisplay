@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -139,6 +142,7 @@ namespace VDisplay
             float newx = (this.Width) / X; //窗体宽度缩放比例
             float newy = this.Height / Y;//窗体高度缩放比例
             uiDataGridView1.ColumnHeadersHeight = Convert.ToInt32(uiDataGridView1.ColumnHeadersHeight * newy);
+
             uiDataGridView1.RowHeadersWidth = Convert.ToInt32(uiDataGridView1.RowHeadersWidth * newx);
             setControls(newx, newy, this);//随窗体改变控件大小
         }
@@ -294,7 +298,7 @@ namespace VDisplay
             public float[] hor3_ylen { get; set; }
             public Color color { get; set; }
 
-            //加个构造函数初始化input，teach两个数组
+            //加个构造函数初始化
 
             public Person()
             {
@@ -320,26 +324,31 @@ namespace VDisplay
         }
 
         Person[] person = new Person[10];
-        int person_cnt;
+        int person_sum; // 总人数
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            int cur_person;
+            int cur_person; // 循环变量
+            int cnt_person; // 场景人数统计
             Mat image1 = new Mat(image_file_top[index], ImreadModes.AnyColor);
             buffimage[1] = image1.ToBitmap();
+            // TopView
             Graphics g1 = Graphics.FromImage(buffimage[1]);
             cur_person = 0;
-            while(cur_person < person_cnt)
+            cnt_person = 0;
+            while(cur_person < person_sum)
             {
                 if (person[cur_person].top_xmin[index] == 0.0f)
                 {
                     ++cur_person;
                     continue;
                 }
-                g1.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
-                g1.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index]);
+                ++cnt_person;
+                g1.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
+                g1.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index] - 80, person[cur_person].top_ymin[index] - 80);
                 ++cur_person;
             }
+            this.uiDataGridView1.Rows[0].Cells[1].Value = cnt_person.ToString();
             image1.Release();
 
             Mat image2 = null;
@@ -351,17 +360,20 @@ namespace VDisplay
                 buffimage[2] = image2.ToBitmap();
                 g2 = Graphics.FromImage(buffimage[2]);
                 cur_person = 0;
-                while (cur_person < person_cnt)
+                cnt_person = 0;
+                while (cur_person < person_sum)
                 {
                     if (person[cur_person].hor1_xmin[index] == 0.0f)
                     {
                         ++cur_person;
                         continue;
                     }
-                    g2.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
-                    g2.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+                    ++cnt_person;
+                    g2.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g2.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
                     ++cur_person;
                 }
+                this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
                 image2.Release();
             }
             Mat image3 = null;
@@ -373,17 +385,20 @@ namespace VDisplay
                 buffimage[3] = image3.ToBitmap();
                 g3 = Graphics.FromImage(buffimage[3]);
                 cur_person = 0;
-                while (cur_person < person_cnt)
+                cnt_person = 0;
+                while (cur_person < person_sum)
                 {
                     if (person[cur_person].hor2_xmin[index] == 0.0f)
                     {
                         ++cur_person;
                         continue;
                     }
-                    g3.DrawRectangle(new Pen(person[cur_person].color, 2), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
-                    g3.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+                    ++cnt_person;
+                    g3.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g3.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index] - 80, person[cur_person].hor2_ymin[index] - 80);
                     ++cur_person;
                 }
+                this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
                 image3.Release();
             }
 
@@ -408,47 +423,56 @@ namespace VDisplay
             if(mode == 2)
             {
                 cur_person = 0;
-                while (cur_person < person_cnt)
+                cnt_person = 0;
+                while (cur_person < person_sum)
                 {
                     if (person[cur_person].hor1_xmin[index] == 0.0f)
                     {
                         ++cur_person;
                         continue;
                     }
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+                    ++cnt_person;
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
                     ++cur_person;
                 }
+                this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
             }
             else if(mode == 3)
             {
                 cur_person = 0;
-                while (cur_person < person_cnt)
+                cnt_person = 0;
+                while (cur_person < person_sum)
                 {
                     if (person[cur_person].hor2_xmin[index] == 0.0f)
                     {
                         ++cur_person;
                         continue;
                     }
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+                    ++cnt_person;
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index] - 80, person[cur_person].hor2_ymin[index] - 80);
                     ++cur_person;
                 }
+                this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
             }
             else if(mode == 4)
             {
                 cur_person = 0;
-                while (cur_person < person_cnt)
+                cnt_person = 0;
+                while (cur_person < person_sum)
                 {
                     if (person[cur_person].hor3_xmin[index] == 0.0f)
                     {
                         ++cur_person;
                         continue;
                     }
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index]);
+                    ++cnt_person;
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index] - 80, person[cur_person].hor3_ymin[index] - 80);
                     ++cur_person;
                 }
+                this.uiDataGridView1.Rows[3].Cells[1].Value = cnt_person.ToString();
             }
             image4.Release();
             if (mode == 4)
@@ -568,7 +592,17 @@ namespace VDisplay
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string url = "http://kurox.cn:5715/get_file/test.jpg";
+            WebRequest wRequest = WebRequest.Create(url);
+            wRequest.Method = "GET";
+            wRequest.ContentType = "text/html;charset=UTF-8";
+            WebResponse wResponse = wRequest.GetResponse();
+            Stream stream = wResponse.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, System.Text.Encoding.Default);
+            string str = reader.ReadToEnd(); //url返回的值
+            reader.Close();
+            wResponse.Close();
+            MessageBox.Show(str);
         }
 
 
@@ -599,6 +633,11 @@ namespace VDisplay
 
         }
 
+        private void Button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void 俯视3平视ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBox2.Visible = true;
@@ -613,7 +652,7 @@ namespace VDisplay
 
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            person_cnt = 0;
+            person_sum = 0;
             for(int i = 0; i < 10; i++)
             {
                 for(int j = 0; j < 1500; j++)
@@ -634,6 +673,8 @@ namespace VDisplay
                 int cur_line;
                 int cur_frame;
                 int cur_person;
+                /* 重置表格 */
+                this.uiDataGridView1.Rows.Clear();
                 /* 顶视 */
                 string[] f1;
                 f1 = System.IO.Directory.GetDirectories(foldername, "*top");
@@ -644,6 +685,10 @@ namespace VDisplay
                 }
                 image_file_top = System.IO.Directory.GetFiles(f1[0], "*.jpg");
                 pos_file_top = System.IO.Directory.GetFiles(f1[0], "*.txt");
+                this.uiDataGridView1.Rows.Add(new System.String[] {
+                "TopView",
+                "",
+                "" });
                 lines = System.IO.File.ReadAllLines(pos_file_top[0]);
                 cur_line = 0;
                 cur_frame = 0;
@@ -663,9 +708,9 @@ namespace VDisplay
                     cur_line++;
                 }
                 cur_person++;
-                if (cur_person > person_cnt)
+                if (cur_person > person_sum)
                 {
-                    person_cnt = cur_person;
+                    person_sum = cur_person;
                 }
 
                 /* 平视1 */
@@ -678,6 +723,10 @@ namespace VDisplay
                 }
                 image_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.jpg");
                 pos_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.txt");
+                this.uiDataGridView1.Rows.Add(new System.String[] {
+                "HorizontalView1",
+                "",
+                "" });
                 lines = System.IO.File.ReadAllLines(pos_file_hor1[0]);
                 cur_line = 0;
                 cur_frame = 0;
@@ -697,9 +746,9 @@ namespace VDisplay
                     cur_line++;
                 }
                 cur_person++;
-                if (cur_person > person_cnt)
+                if (cur_person > person_sum)
                 {
-                    person_cnt = cur_person;
+                    person_sum = cur_person;
                 }
 
                 /* 平视2 */
@@ -726,6 +775,10 @@ namespace VDisplay
                 {
                     image_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.jpg");
                     pos_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.txt");
+                    this.uiDataGridView1.Rows.Add(new System.String[] {
+                    "HorizontalView2",
+                    "",
+                    "" });
                     lines = System.IO.File.ReadAllLines(pos_file_hor2[0]);
                     cur_line = 0;
                     cur_frame = 0;
@@ -745,9 +798,9 @@ namespace VDisplay
                         cur_line++;
                     }
                     cur_person++;
-                    if (cur_person > person_cnt)
+                    if (cur_person > person_sum)
                     {
-                        person_cnt = cur_person;
+                        person_sum = cur_person;
                     }
                 }
 
@@ -792,6 +845,10 @@ namespace VDisplay
                         image_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.jpg");
                         //pos4 = System.IO.Directory.GetDirectories(f4[0], "*xml");
                         pos_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.txt");
+                        this.uiDataGridView1.Rows.Add(new System.String[] {
+                        "HorizontalView3",
+                        "",
+                        "" });
                         lines = System.IO.File.ReadAllLines(pos_file_hor3[0]);
                         cur_line = 0;
                         cur_frame = 0;
@@ -811,9 +868,9 @@ namespace VDisplay
                             cur_line++;
                         }
                         cur_person++;
-                        if (cur_person > person_cnt)
+                        if (cur_person > person_sum)
                         {
-                            person_cnt = cur_person;
+                            person_sum = cur_person;
                         }
                     }
                 }
