@@ -344,8 +344,10 @@ namespace VDisplay
                     continue;
                 }
                 ++cnt_person;
+
                 g1.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
                 g1.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index] - 80, person[cur_person].top_ymin[index] - 80);
+
                 ++cur_person;
             }
             this.uiDataGridView1.Rows[0].Cells[1].Value = cnt_person.ToString();
@@ -369,8 +371,11 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
+
                     g2.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
                     g2.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
+
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
@@ -394,8 +399,10 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
+
                     g3.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
                     g3.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index] - 80, person[cur_person].hor2_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
@@ -432,8 +439,10 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
+
                     g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
                     g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
@@ -470,6 +479,7 @@ namespace VDisplay
                     ++cnt_person;
                     g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
                     g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index] - 80, person[cur_person].hor3_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[3].Cells[1].Value = cnt_person.ToString();
