@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +24,8 @@ namespace VDisplay
         public 基于视觉智能的多人场景视频监控平台项目演示()
         {
             InitializeComponent();
-            for(int i = 0; i < 10; i++)
+            /* 初始化颜色 */
+            for (int i = 0; i < 10; i++)
             {
                 person[i] = new Person();
                 person[i].color = colors[i];
@@ -32,15 +33,22 @@ namespace VDisplay
             //this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             //this.skinEngine1.SkinFile = Application.StartupPath + "//WarmColor2.ssk";
         }
+        /* 颜色设定 */
+        Color[] colors = { Color.Black, Color.Red, Color.Pink, Color.Orange, Color.Yellow, Color.Green, Color.Blue, Color.Purple, Color.Gold, Color.Brown };
         System.Windows.Forms.FolderBrowserDialog folderdia = new FolderBrowserDialog();
         static string foldername;
+        /* 图片文件索引 */
         static string[] image_file_top;
         static string[] image_file_hor1;
         static string[] image_file_hor2;
         static string[] image_file_hor3;
+        /* 坐标文件索引 */
         static string[] pos_file_top, pos_file_hor1, pos_file_hor2, pos_file_hor3;
+        /* 视频当前帧索引 */
         static int index = 0;
+        /* 双缓冲 */
         Bitmap[] buffimage = new Bitmap[5];
+        /* 视频运行状态 */
         static bool isopen = false;
         private void videoStart_Click(object sender, EventArgs e)
         {
@@ -53,24 +61,24 @@ namespace VDisplay
 
         }
         int mode = 4;
-        
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
         private void pictureBox4_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void pictureBox3_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void videoFStart_Click(object sender, EventArgs e)
@@ -82,7 +90,7 @@ namespace VDisplay
             }
             else
             {
-                
+
                 //length = pos_file_top.Length;
                 this.timer.Start();
             }
@@ -92,7 +100,7 @@ namespace VDisplay
         {
 
         }
-        
+
         float X;
         float Y;
         private void Form1_Load(object sender, EventArgs e) //装载窗口事件, 是窗体启动时触发的事件，一般写程序你把自己要初始化的东东可以放在Form1_Load中
@@ -113,7 +121,7 @@ namespace VDisplay
                     setTag(con);
             }
         }
-        
+
         private void setControls(float newx, float newy, Control cons)
         {
             //遍历窗体中的控件，重新设置控件的值
@@ -136,7 +144,7 @@ namespace VDisplay
                 }
             }
         }
-        
+
         void Form1_Resize(object sender, EventArgs e)
         {
             float newx = (this.Width) / X; //窗体宽度缩放比例
@@ -146,7 +154,7 @@ namespace VDisplay
             uiDataGridView1.RowHeadersWidth = Convert.ToInt32(uiDataGridView1.RowHeadersWidth * newx);
             setControls(newx, newy, this);//随窗体改变控件大小
         }
-        
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
@@ -276,8 +284,8 @@ namespace VDisplay
         {
 
         }
-        Color[] colors = {Color.Black, Color.Red, Color.Pink, Color.Orange, Color.Yellow, Color.Green, Color.Blue, Color.Purple, Color.Gold, Color.Brown };
-        string[] lines;
+
+        /* 人物信息 */
         class Person
         {
             public float[] top_xmin { get; set; }
@@ -302,29 +310,31 @@ namespace VDisplay
 
             public Person()
             {
-                 top_xmin = new float[1800];
-                 top_ymin = new float[1800];
-                 top_xlen = new float[1800];
-                 top_ylen = new float[1800];
-                 hor1_xmin = new float[1800];
-                 hor1_ymin = new float[1800];
-                 hor1_xlen = new float[1800];
-                 hor1_ylen = new float[1800];
-                 hor2_xmin = new float[1800];
-                 hor2_ymin = new float[1800];
-                 hor2_xlen = new float[1800];
-                 hor2_ylen = new float[1800];
-                 hor3_xmin = new float[1800];
-                 hor3_ymin = new float[1800];
-                 hor3_xlen = new float[1800];
-                 hor3_ylen = new float[1800];
-                 color = new Color();
+                top_xmin = new float[1800];
+                top_ymin = new float[1800];
+                top_xlen = new float[1800];
+                top_ylen = new float[1800];
+                hor1_xmin = new float[1800];
+                hor1_ymin = new float[1800];
+                hor1_xlen = new float[1800];
+                hor1_ylen = new float[1800];
+                hor2_xmin = new float[1800];
+                hor2_ymin = new float[1800];
+                hor2_xlen = new float[1800];
+                hor2_ylen = new float[1800];
+                hor3_xmin = new float[1800];
+                hor3_ymin = new float[1800];
+                hor3_xlen = new float[1800];
+                hor3_ylen = new float[1800];
+                color = new Color();
             }
 
         }
 
         Person[] person = new Person[10];
-        int person_sum; // 总人数
+
+        /* 总人数 */
+        int person_sum;
 
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -336,7 +346,7 @@ namespace VDisplay
             Graphics g1 = Graphics.FromImage(buffimage[1]);
             cur_person = 0;
             cnt_person = 0;
-            while(cur_person < person_sum)
+            while (cur_person < person_sum)
             {
                 if (person[cur_person].top_xmin[index] == 0.0f)
                 {
@@ -413,21 +423,21 @@ namespace VDisplay
             if (mode == 2)
             {
                 image4 = new Mat(image_file_hor1[index], ImreadModes.AnyColor);
-                
+
             }
             else if (mode == 3)
             {
                 image4 = new Mat(image_file_hor2[index], ImreadModes.AnyColor);
-                
+
             }
             else if (mode == 4)
             {
                 image4 = new Mat(image_file_hor3[index], ImreadModes.AnyColor);
-                
+
             }
             buffimage[4] = image4.ToBitmap();
             Graphics g4 = Graphics.FromImage(buffimage[4]);
-            if(mode == 2)
+            if (mode == 2)
             {
                 cur_person = 0;
                 cnt_person = 0;
@@ -447,7 +457,7 @@ namespace VDisplay
                 }
                 this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
             }
-            else if(mode == 3)
+            else if (mode == 3)
             {
                 cur_person = 0;
                 cnt_person = 0;
@@ -465,7 +475,7 @@ namespace VDisplay
                 }
                 this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
             }
-            else if(mode == 4)
+            else if (mode == 4)
             {
                 cur_person = 0;
                 cnt_person = 0;
@@ -660,12 +670,17 @@ namespace VDisplay
             pictureBox4.Location = new System.Drawing.Point(270, 259);
         }
 
+        /* 逐行处理坐标文件 */
+
+        string[] lines;
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            /* 初始化 */
             person_sum = 0;
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for(int j = 0; j < 1500; j++)
+                for (int j = 0; j < 1500; j++)
                 {
                     person[i].top_xmin[j] = person[i].top_ymin[j] = person[i].top_xlen[j] = person[i].top_ylen[j] = 0.0f;
                     person[i].hor1_xmin[j] = person[i].hor1_ymin[j] = person[i].hor1_xlen[j] = person[i].hor1_ylen[j] = 0.0f;
@@ -695,32 +710,29 @@ namespace VDisplay
                 }
                 image_file_top = System.IO.Directory.GetFiles(f1[0], "*.jpg");
                 pos_file_top = System.IO.Directory.GetFiles(f1[0], "*.txt");
+
+                /* 顶视 表格 */
                 this.uiDataGridView1.Rows.Add(new System.String[] {
                 "TopView",
                 "",
                 "" });
+
+                /* 顶视 坐标 */
                 lines = System.IO.File.ReadAllLines(pos_file_top[0]);
                 cur_line = 0;
                 cur_frame = 0;
                 cur_person = 0;
-                while(cur_line < lines.Length)
+                while (cur_line < lines.Length)
                 {
                     string[] words = lines[cur_line].Split(',');
-                    if (Int32.Parse(words[0]) < cur_frame)
-                    {
-                        cur_person++;
-                    }
+                    cur_person = Int32.Parse(words[1]) - 1;
+                    person_sum = Math.Max(cur_person, person_sum);
                     cur_frame = Int32.Parse(words[0]) - 1;
                     person[cur_person].top_xmin[cur_frame] = float.Parse(words[2]);
                     person[cur_person].top_ymin[cur_frame] = float.Parse(words[3]);
                     person[cur_person].top_xlen[cur_frame] = float.Parse(words[4]);
                     person[cur_person].top_ylen[cur_frame] = float.Parse(words[5]);
                     cur_line++;
-                }
-                cur_person++;
-                if (cur_person > person_sum)
-                {
-                    person_sum = cur_person;
                 }
 
                 /* 平视1 */
@@ -732,11 +744,15 @@ namespace VDisplay
                     return;
                 }
                 image_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.jpg");
+
+                /* 平视1 表格 */
                 pos_file_hor1 = System.IO.Directory.GetFiles(f2[0], "*.txt");
                 this.uiDataGridView1.Rows.Add(new System.String[] {
                 "HorizontalView1",
                 "",
                 "" });
+
+                /* 平视1 坐标 */
                 lines = System.IO.File.ReadAllLines(pos_file_hor1[0]);
                 cur_line = 0;
                 cur_frame = 0;
@@ -744,10 +760,8 @@ namespace VDisplay
                 while (cur_line < lines.Length)
                 {
                     string[] words = lines[cur_line].Split(',');
-                    if (Int32.Parse(words[0]) < cur_frame)
-                    {
-                        cur_person++;
-                    }
+                    cur_person = Int32.Parse(words[1]) - 1;
+                    person_sum = Math.Max(cur_person, person_sum);
                     cur_frame = Int32.Parse(words[0]) - 1;
                     person[cur_person].hor1_xmin[cur_frame] = float.Parse(words[2]);
                     person[cur_person].hor1_ymin[cur_frame] = float.Parse(words[3]);
@@ -755,11 +769,7 @@ namespace VDisplay
                     person[cur_person].hor1_ylen[cur_frame] = float.Parse(words[5]);
                     cur_line++;
                 }
-                cur_person++;
-                if (cur_person > person_sum)
-                {
-                    person_sum = cur_person;
-                }
+
 
                 /* 平视2 */
                 string[] f3;
@@ -785,10 +795,14 @@ namespace VDisplay
                 {
                     image_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.jpg");
                     pos_file_hor2 = System.IO.Directory.GetFiles(f3[0], "*.txt");
+
+                    /* 平视2  表格 */
                     this.uiDataGridView1.Rows.Add(new System.String[] {
                     "HorizontalView2",
                     "",
                     "" });
+
+                    /* 平视2 坐标 */
                     lines = System.IO.File.ReadAllLines(pos_file_hor2[0]);
                     cur_line = 0;
                     cur_frame = 0;
@@ -796,10 +810,8 @@ namespace VDisplay
                     while (cur_line < lines.Length)
                     {
                         string[] words = lines[cur_line].Split(',');
-                        if (Int32.Parse(words[0]) < cur_frame)
-                        {
-                            cur_person++;
-                        }
+                        cur_person = Int32.Parse(words[1]) - 1;
+                        person_sum = Math.Max(cur_person, person_sum);
                         cur_frame = Int32.Parse(words[0]) - 1;
                         person[cur_person].hor2_xmin[cur_frame] = float.Parse(words[2]);
                         person[cur_person].hor2_ymin[cur_frame] = float.Parse(words[3]);
@@ -807,11 +819,7 @@ namespace VDisplay
                         person[cur_person].hor2_ylen[cur_frame] = float.Parse(words[5]);
                         cur_line++;
                     }
-                    cur_person++;
-                    if (cur_person > person_sum)
-                    {
-                        person_sum = cur_person;
-                    }
+
                 }
 
                 if (mode != 2)
@@ -855,10 +863,14 @@ namespace VDisplay
                         image_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.jpg");
                         //pos4 = System.IO.Directory.GetDirectories(f4[0], "*xml");
                         pos_file_hor3 = System.IO.Directory.GetFiles(f4[0], "*.txt");
+
+                        /* 平视3 表格 */
                         this.uiDataGridView1.Rows.Add(new System.String[] {
                         "HorizontalView3",
                         "",
                         "" });
+
+                        /* 平视3 坐标 */
                         lines = System.IO.File.ReadAllLines(pos_file_hor3[0]);
                         cur_line = 0;
                         cur_frame = 0;
@@ -866,10 +878,8 @@ namespace VDisplay
                         while (cur_line < lines.Length)
                         {
                             string[] words = lines[cur_line].Split(',');
-                            if (Int32.Parse(words[0]) < cur_frame)
-                            {
-                                cur_person++;
-                            }
+                            cur_person = Int32.Parse(words[1]) - 1;
+                            person_sum = Math.Max(cur_person, person_sum);
                             cur_frame = Int32.Parse(words[0]) - 1;
                             person[cur_person].hor3_xmin[cur_frame] = float.Parse(words[2]);
                             person[cur_person].hor3_ymin[cur_frame] = float.Parse(words[3]);
@@ -877,11 +887,7 @@ namespace VDisplay
                             person[cur_person].hor3_ylen[cur_frame] = float.Parse(words[5]);
                             cur_line++;
                         }
-                        cur_person++;
-                        if (cur_person > person_sum)
-                        {
-                            person_sum = cur_person;
-                        }
+
                     }
                 }
             }
@@ -900,10 +906,6 @@ namespace VDisplay
             pictureBox4.Location = new System.Drawing.Point(270, 259);
         }
 
-        
+
     }
 }
-
-
-
-
