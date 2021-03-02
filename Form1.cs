@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -139,6 +142,7 @@ namespace VDisplay
             float newx = (this.Width) / X; //窗体宽度缩放比例
             float newy = this.Height / Y;//窗体高度缩放比例
             uiDataGridView1.ColumnHeadersHeight = Convert.ToInt32(uiDataGridView1.ColumnHeadersHeight * newy);
+
             uiDataGridView1.RowHeadersWidth = Convert.ToInt32(uiDataGridView1.RowHeadersWidth * newx);
             setControls(newx, newy, this);//随窗体改变控件大小
         }
@@ -340,8 +344,10 @@ namespace VDisplay
                     continue;
                 }
                 ++cnt_person;
-                g1.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
-                g1.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index]);
+
+                g1.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].top_xmin[index], person[cur_person].top_ymin[index], person[cur_person].top_xlen[index], person[cur_person].top_xlen[index]);
+                g1.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].top_xmin[index] - 80, person[cur_person].top_ymin[index] - 80);
+
                 ++cur_person;
             }
             this.uiDataGridView1.Rows[0].Cells[1].Value = cnt_person.ToString();
@@ -365,8 +371,11 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
-                    g2.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
-                    g2.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+
+                    g2.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g2.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
+
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
@@ -390,8 +399,10 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
-                    g3.DrawRectangle(new Pen(person[cur_person].color, 2), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
-                    g3.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+
+                    g3.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g3.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index] - 80, person[cur_person].hor2_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
@@ -428,8 +439,10 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index]);
+
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor1_xmin[index], person[cur_person].hor1_ymin[index], person[cur_person].hor1_xlen[index], person[cur_person].hor1_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor1_xmin[index] - 80, person[cur_person].hor1_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[1].Cells[1].Value = cnt_person.ToString();
@@ -446,8 +459,8 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index]);
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor2_xmin[index], person[cur_person].hor2_ymin[index], person[cur_person].hor2_xlen[index], person[cur_person].hor2_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor2_xmin[index] - 80, person[cur_person].hor2_ymin[index] - 80);
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[2].Cells[1].Value = cnt_person.ToString();
@@ -464,8 +477,9 @@ namespace VDisplay
                         continue;
                     }
                     ++cnt_person;
-                    g4.DrawRectangle(new Pen(person[cur_person].color, 5), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
-                    g4.DrawString(cur_person.ToString(), new Font("Arial", 50), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index]);
+                    g4.DrawRectangle(new Pen(person[cur_person].color, 10), person[cur_person].hor3_xmin[index], person[cur_person].hor3_ymin[index], person[cur_person].hor3_xlen[index], person[cur_person].hor3_ylen[index]);
+                    g4.DrawString(cur_person.ToString(), new Font("Arial", 80), new SolidBrush(person[cur_person].color), person[cur_person].hor3_xmin[index] - 80, person[cur_person].hor3_ymin[index] - 80);
+
                     ++cur_person;
                 }
                 this.uiDataGridView1.Rows[3].Cells[1].Value = cnt_person.ToString();
@@ -588,7 +602,17 @@ namespace VDisplay
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string url = "http://kurox.cn:5715/get_file/test.jpg";
+            WebRequest wRequest = WebRequest.Create(url);
+            wRequest.Method = "GET";
+            wRequest.ContentType = "text/html;charset=UTF-8";
+            WebResponse wResponse = wRequest.GetResponse();
+            Stream stream = wResponse.GetResponseStream();
+            StreamReader reader = new StreamReader(stream, System.Text.Encoding.Default);
+            string str = reader.ReadToEnd(); //url返回的值
+            reader.Close();
+            wResponse.Close();
+            MessageBox.Show(str);
         }
 
 
@@ -616,6 +640,11 @@ namespace VDisplay
             label1.Location = new System.Drawing.Point(147, 87);
             pictureBox4.Location = new System.Drawing.Point(147, 280);
             label4.Location = new System.Drawing.Point(147, 280);
+
+        }
+
+        private void Button2_Click_1(object sender, EventArgs e)
+        {
 
         }
 
